@@ -1,0 +1,38 @@
+{
+    "report_generated_on": "2025-07-25 19:27:11",
+    "image_analyzed": "data/sample_images/icon.jpg",
+    "face_count": 1,
+    "exif_metadata": {
+        "DateTimeOriginal": "2025:07:23 19:46:47",
+        "GPSLatitude": [
+            19.076
+        ],
+        "Software": "Windows 11"
+    },
+    "entities_detected": {
+        "names": [
+            "Riya Shah"
+        ],
+        "emails": [
+            "riya.shah@company.com"
+        ],
+        "locations": [
+            "Bangalore"
+        ],
+        "dates": [
+            "12th May 2022"
+        ]
+    },
+    "privacy_risk": {
+        "score": 115,
+        "level": "HIGH",
+        "reasons": [
+            "Faces detected",
+            "Name(s) found",
+            "Email(s) found",
+            "Location(s) found",
+            "Date(s) found",
+            "GPS metadata found"
+        ]
+    }
+}

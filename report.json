@@ -1,0 +1,19 @@
+{
+    "report_generated_on": "2025-07-25 19:44:47",
+    "image_analyzed": "data/sample_images/2.jpg",
+    "face_count": 1,
+    "exif_metadata": {},
+    "entities_detected": {
+        "names": [],
+        "locations": [],
+        "emails": [],
+        "dates": []
+    },
+    "privacy_risk": {
+        "score": 30,
+        "level": "LOW",
+        "reasons": [
+            "Faces detected"
+        ]
+    }
+}
