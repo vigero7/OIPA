@@ -1,72 +1,18 @@
+# OIPA - Open Source Image Privacy Analyzer
 
----
-
-````markdown
-# 🔍 OIPA - Open Source Image Privacy Analyzer
-
-OIPA is a Python-based cybersecurity and OSINT tool that analyzes images for privacy risks. It detects embedded metadata (EXIF), faces, and textual entities like names, emails, and dates. Based on the extracted information, it generates a detailed privacy risk report.
-
-> 🎯 Built to demonstrate image-level privacy assessment using AI and open-source intelligence (OSINT) principles.
+> OIPA is a lightweight yet powerful image privacy analysis tool. Built for cybersecurity & OSINT research, it scans images for embedded metadata, detects faces, extracts entities using AI/NLP, and generates privacy risk reports based on your findings.
 
 ---
 
 ## ✨ Features
 
-- 📷 **Image Metadata Extraction** (EXIF)
-- 🧠 **Face Detection** using deep learning
-- 📝 **Textual Entity Extraction** (names, emails, dates, locations)
-- 🔐 **Privacy Risk Assessment** with scoring logic
-- 📄 **JSON Report Generation**
-
-
----
-
-## 🚀 Demo
-
-```bash
-# Analyze a local image
-python main.py --image data/sample_images/1.jpg
-
-# Or analyze from an online URL
-python main.py --url https://example.com/photo.jpg
-````
-
-You’ll get output like:
-
-```
-🔍 Analyzing image: ...
-[✓] Metadata extracted
-[✓] 1 face(s) detected
-[✓] Entities extracted
-[✓] Privacy Risk: MEDIUM (Score: 45)
-✅ Report saved to: report.json
-```
-
----
-
-## 🧠 How It Works
-
-1. **Collect**: Image is collected from local path or URL.
-2. **Analyze**:
-
-   * Extracts EXIF data (e.g. GPS, camera info)
-   * Detects faces using `face_recognition`
-   * Extracts named entities using `spaCy`
-3. **(Optional)** Reverse Image Search (Tineye/Bing/etc.)
-4. **Assess**: Evaluates privacy risk based on detected data.
-5. **Report**: Saves result in a JSON file.
-
----
-
-## 🛠️ Tech Stack
-
-* `Python 3.8+`
-* `face-recognition`
-* `spaCy`
-* `Pillow`
-* `piexif`
-* `BeautifulSoup`, `Selenium`
-* `Streamlit` *(optional frontend, WIP)*
+* ✅ EXIF Metadata Extraction (GPS, timestamps, camera info)
+* ✅ Face Detection using `face_recognition`
+* ✅ AI-based Named Entity Recognition with spaCy
+* ✅ OSINT scraping & entity merging (URLs, names, emails, etc.)
+* ✅ Privacy Risk Scoring & Categorization
+* ✅ Clean JSON Report Generation
+* ✅ CLI Tool with support for local files and image URLs
 
 ---
 
@@ -74,7 +20,6 @@ You’ll get output like:
 
 ```
 OIPA/
-├── data/sample_images/
 ├── src/
 │   ├── ai_processor.py
 │   ├── image_analyzer.py
@@ -82,79 +27,97 @@ OIPA/
 │   ├── privacy_assessor.py
 │   ├── report_generator.py
 │   └── reverse_image_search.py
-├── main.py
-├── requirements.txt
-└── README.md
+├── data/sample_images/
+└── main.py
 ```
 
 ---
 
-## 📄 Sample Report (JSON)
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/OIPA.git
+cd OIPA
+```
+
+### 2. Create Virtual Environment & Install Dependencies
+
+```bash
+python -m venv venv
+venv\Scripts\activate   # On Windows
+source venv/bin/activate  # On Unix
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+```
+
+### 3. Run the Analyzer
+
+```bash
+python main.py --image data/sample_images/1.jpg
+# or
+python main.py --url https://example.com/photo.jpg
+```
+
+---
+
+## 📊 Sample Output
 
 ```json
 {
-  "image_analyzed": "sample.jpg",
-  "exif_metadata": {},
+  "image_analyzed": "data/sample_images/1.jpg",
   "face_count": 1,
+  "exif_metadata": {},
   "entities_detected": {
     "names": ["John Doe"],
-    "emails": ["john@example.com"],
+    "emails": ["johndoe@email.com"],
     "locations": ["New York"],
-    "dates": ["2022-01-01"]
+    "dates": ["2022-05-12"]
   },
   "privacy_risk": {
     "score": 60,
     "level": "HIGH",
-    "reasons": ["Faces detected", "Name", "Email", "Location"]
+    "reasons": ["Name detected", "Email found"]
   },
-  "report_generated_on": "2025-07-25 18:32:58"
+  "report_generated_on": "2025-07-25 19:32:58"
 }
 ```
 
 ---
 
-## 🧪 Setup
+## 🫡 Use Cases
 
-```bash
-git clone https://github.com/your-username/OIPA.git
-cd OIPA
-python -m venv venv
-venv\Scripts\activate   # or source venv/bin/activate on Linux
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
-```
+* Cybersecurity & Digital Privacy Awareness
+* OSINT Investigations
+* Image Data Audits before Uploading
+* Educational Demonstrations on Metadata & PII
 
 ---
 
-## 🛡️ Use Case
+## ⚖️ License
 
-This project is intended for:
-
-* **Cybersecurity students** analyzing privacy risks in media
-* **Pentesters** looking for metadata leaks
-* **OSINT researchers** extracting identity data from images
-* **Privacy-conscious users** checking what info an image reveals
+This project is licensed under the **MIT License**. Feel free to use, modify, and distribute with credit.
 
 ---
 
-## 🔒 Ethical Disclaimer
+## ✨ Future Enhancements
 
-This tool is intended for educational and ethical use only. Do **not** use it for surveillance, stalking, or privacy invasion without informed consent.
+* 🔍 Real-time face recognition from live camera feeds
+* 🌐 Reverse image search across multiple engines (e.g. Google, Bing, Tineye)
+* 🧠 Advanced AI-based OSINT enrichment (detecting real-time location, phone, emails)
+* 📡 Geolocation triangulation based on EXIF + facial region
+* 🧬 Face vector profiling and persistent identity tracking
+* 📺 Streamlit-based Web UI for easier interaction
 
 ---
 
-## 👤 Author
+## 🙌 Author
 
 **Ankit Singh**
-Cybersecurity student & OSINT enthusiast
-📫 [LinkedIn](https://www.linkedin.com/in/ankit-singh-9b69a3251/) • 🌐 [GitHub](https://github.com/vigero7)
+Cybersecurity Student | OSINT Enthusiast | Python Developer
+GitHub: [@ankit-singh](https://github.com/<your-username>)
 
 ---
 
-## ⭐ Show your support
-
-If you find this project useful, please ⭐ star the repo and share it! It helps others discover it.
-
-```
-
-
+> If you find this project useful, consider giving it a ⭐ star!
