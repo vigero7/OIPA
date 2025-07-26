@@ -1,4 +1,3 @@
-Here’s a polished `README.md` for your **OIPA (Open Source Image Privacy Analyzer)** project, ideal for showcasing on GitHub and including in your resume portfolio:
 
 ---
 
@@ -158,7 +157,4 @@ If you find this project useful, please ⭐ star the repo and share it! It helps
 
 ```
 
----
 
-Would you like a shorter version for your **resume description** or a **Streamlit UI suggestion** for later?
-```
