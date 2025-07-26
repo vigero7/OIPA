@@ -1,14 +1,14 @@
-# main.py
-
 import argparse
 import os
 import tempfile
+import pprint
+
 from src.osint_collector import OSINTImageCollector
 from src.image_analyzer import extract_exif_metadata, detect_faces
 from src.ai_processor import AIDataProcessor
 from src.privacy_assessor import PrivacyAssessor
 from src.report_generator import ReportGenerator
-import pprint
+
 
 def download_from_url(url):
     collector = OSINTImageCollector()
@@ -17,12 +17,12 @@ def download_from_url(url):
     collector.download_image_from_url(url, filename)
     return filename
 
+
 def get_caption(image_path):
     """
-    Try to get a caption for NLP entity extraction.
-    Priority:
+    Get a caption for NLP entity extraction.
     1. If a .txt file with the same name exists, use its content
-    2. Else, fall back to image file name
+    2. Else, fallback to image file name
     """
     base, _ = os.path.splitext(image_path)
     caption_file = base + ".txt"
@@ -35,6 +35,7 @@ def get_caption(image_path):
         print("[i] Using image filename as caption")
         return os.path.basename(image_path).replace("_", " ")
 
+
 def analyze(image_path):
     print("\n🔍 Analyzing image:", image_path)
 
@@ -46,7 +47,7 @@ def analyze(image_path):
     faces = detect_faces(image_path)
     print(f"[✓] {len(faces)} face(s) detected")
 
-    # 3. NLP entity extraction
+    # 3. NLP entity extraction from caption
     caption = get_caption(image_path)
     processor = AIDataProcessor()
     entities = processor.extract_entities(caption)
@@ -70,6 +71,7 @@ def analyze(image_path):
     print("\n📄 Final Report Summary:")
     pprint.pprint(final)
     print("\n✅ Report saved to: report.json")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="OIPA - Open Source Image Privacy Analyzer")
