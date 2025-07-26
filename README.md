@@ -38,7 +38,7 @@ OIPA/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/OIPA.git
+git clone https://github.com/<vigero7>/OIPA.git
 cd OIPA
 ```
 
@@ -116,7 +116,7 @@ This project is licensed under the **MIT License**. Feel free to use, modify, an
 
 **Ankit Singh**
 Cybersecurity Student | OSINT Enthusiast | Python Developer
-GitHub: [@ankit-singh](https://github.com/<your-username>)
+GitHub: [@ankit-singh](https://github.com/vigero7>)
 
 ---
 
